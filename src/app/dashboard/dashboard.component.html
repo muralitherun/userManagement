@@ -1,0 +1,8 @@
+<h2>Dashboard</h2>
+<input type="text" placeholder="Search">
+<button routerLink="/user-form">Add User</button>
+
+<div *ngFor="let user of users">
+  {{ user.firstName }} {{ user.lastName }}
+  <button (click)="openUserDetailsModal(user)">View</button>
+</div>

@@ -1,0 +1,9 @@
+<h2>Add User</h2>
+<form (ngSubmit)="addUser()">
+  <label>First Name: <input type="text" name="firstName" [(ngModel)]="newUser.firstName"></label><br>
+  <label>Last Name: <input type="text" name="lastName" [(ngModel)]="newUser.lastName"></label><br>
+  <label>Email: <input type="email" name="email" [(ngModel)]="newUser.email"></label><br>
+  <label>Address: <input type="text" name="address" [(ngModel)]="newUser.address"></label><br>
+  <label>Phone Number: <input type="tel" name="phoneNumber" [(ngModel)]="newUser.phoneNumber"></label><br>
+  <button type="submit">Submit</button>
+</form>
