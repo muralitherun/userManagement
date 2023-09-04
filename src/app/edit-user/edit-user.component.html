@@ -1,0 +1,7 @@
+<h2>Edit User</h2>
+<form (ngSubmit)="onSubmit()">
+  <label>Email: <input type="email" [(ngModel)]="user.email" name="email"></label><br>
+  <label>Address: <input type="text" [(ngModel)]="user.address" name="address"></label><br>
+  <label>Phone Number: <input type="tel" [(ngModel)]="user.phoneNumber" name="phoneNumber"></label><br>
+  <button type="submit">Save</button>
+</form>

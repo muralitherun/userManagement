@@ -4,5 +4,5 @@
 
 <div *ngFor="let user of users">
   {{ user.firstName }} {{ user.lastName }}
-  <button (click)="openUserDetailsModal(user)">View</button>
+  <a [routerLink]="['/user-details', user.id]">View</a>
 </div>

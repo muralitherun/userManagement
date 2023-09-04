@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-form',
@@ -8,25 +8,18 @@ import { UserService } from '../user.service';
   styleUrls: ['./user-form.component.scss']
 })
 export class UserFormComponent {
-  newUser = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    address: '',
-    phoneNumber: ''
-  };
+  newUser: any = {}; // Initialize an empty object to hold user data
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) { }
 
   addUser() {
-    this.userService.addUser(this.newUser); // Use the userService to add user
-    this.newUser = {
-      firstName: '',
-      lastName: '',
-      email: '',
-      address: '',
-      phoneNumber: ''
-    };
-    this.router.navigate(['/dashboard']); // Navigate back to the dashboard
+    // Call the addUser method from your UserService to add the user
+    this.userService.addUser(this.newUser);
+
+    // Clear the form fields after adding the user
+    this.newUser = {};
+
+    // Navigate to the dashboard component
+    this.router.navigate(['/dashboard']);
   }
 }

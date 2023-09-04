@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from '../user.service';
-import { UserDetailsModalService } from '../user-details.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,22 +10,15 @@ import { UserDetailsModalService } from '../user-details.service';
 export class DashboardComponent {
   users: any[] = [];
 
-  constructor(private userService: UserService, private userDetailsModalService: UserDetailsModalService) {
+  constructor(private userService: UserService,private router: Router) {
     this.users = this.userService.getUsers();
     console.log('Retrieved users:', this.users);
   }
 
   openUserDetailsModal(user: any) {
-    console.log('Here!');
-    // Set the user details to be displayed in the modal
-    this.userDetailsModalService.setUserDetails({
-      email: user.email,
-      address: user.address,
-      phoneNumber: user.phoneNumber,
-      // Add more details here if needed
-    });
-
-    // Open the modal (you can implement this part based on your preferred modal library)
-    // For example, if you are using Bootstrap Modal, you can trigger modal opening here.
-  }
+    console.log(user);
+    const userId = user.userId; // Replace 'userId' with the actual property name in your 'user' object
+    this.router.navigate(['/user-details', userId]);
+  }  
+  
 }
